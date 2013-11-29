@@ -1,4 +1,0 @@
-Wedding
-=======
-
-My Wedding Notice
