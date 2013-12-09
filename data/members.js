@@ -40,7 +40,7 @@
 		"is_come":true
 	},
 	{
-		"name":"黎卓荣",
+		"name":"黎焯荣",
 		"role":1,
 		"is_come":true
 	},
