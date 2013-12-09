@@ -9,6 +9,9 @@ a {
 a:link,a:visited {
 	color: #4B4C49;
 }
+img {
+	border: 0;
+}
 
 ul {
 	list-style-type: none;
