@@ -87,3 +87,10 @@ ul {
 	margin: 10px;
 	float: left;
 }
+
+.third-part a{
+	width: 95px;
+	font-size: 25px;
+	margin-right: 10px;
+	color: #989898;
+}
