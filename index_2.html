@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="weddingApp">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>
+			Haiming & MinMin Wedding
+		</title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/controller.js"></script>
+		<link type="text/css" rel="stylesheet" href="style/wedding.css">
+	</head>
+	<body>
+		<div class="container">
+						<table class="tb">
+				<tr>
+					<td width="50%" valign="top">
+						<img src="images/cover-wedding-image.jpg?20140109" />
+					</td>
+					<td width="50%" valign="top">
+						<div class="info-header">&lt;wedding&gt;</div>
+						<ul class="info-body">
+							<li>
+								新郎/新娘：黎海明 & 黎敏晖
+							</li>
+							<li>
+								时间：2014-01-09 （五时恭候，六时入席）
+							</li>
+							<li>
+								地址：广州市白云区嘉禾街望岗星豪海皇村
+							</li>
+							<li style="margin:40px 0 10px 0">
+							交通指引：地铁3/2号线嘉禾望岗站，B出口乘
+							</li>
+							<li style="margin:20px 0;padding:0;">
+							739/753/986/756路到七星岗路口,走360米
+							</li>
+							<li>
+							<div class="symbol symbol-envelope">
+				<!-- <span class="symbol-m">M</span><span class="symbol-h">h</span>-->
+				<img src="images/envelope-symbol.png" />
+			</div>
+
+							</li>
+
+						</ul>
+						<div class="info-footer">
+							&lt;/wedding&gt;
+						</div>
+					</td>
+				</tr>
+			</table>
+			<br/>
+			<div class="header">
+				地图
+			</div>
+			<div class="map">
+			<a
+				href="http://map.baidu.com/?newmap=1&s=s%26wd%3D%25E6%2598%259F%25E8%25B1%25AA%25E6%25B5%25B7%25E7%259A%2587%25E6%259D%2591%26c%3D257%26b%3D(12610356.9%2C2644132.9%3B12613356.9%2C2647132.9)"
+				target="_blank"><img
+				src="images/xinghao.png"/></a>
+		</div>
+			<!-- 第二部分 兄弟 -->
+			<div class="header">
+				兄弟名单
+			</div>
+			<div class="second-part" ng-controller="BrotherListCtrl">
+				<ul>
+					<li ng-repeat="brother in brothers">
+					{{brother.name}}
+					</li>
+				</ul>
+			</div>
+			<div class="header" style="text-align:center">
+				Thanks
+			</div>
+			<div class="third-part" style="background-color:transparent;">
+				<a href="http://angularjs.org/" title="google angularjs" target="_blank">Angularjs</a>
+				<a href="https://github.com/" title="github" target="_blank">Github</a>
+				<a href="http://www.baidu.com/" title="Baidu Map" target="_blank">Baidu Map</a>
+				<a href="http://www.zuzuche.com/" title="租租车" target="_blank">ZuZuChe(租租车)</a>
+
+			</div>
+		</div>	
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-46122626-1', 'haimingli.me');
+ga('send', 'pageview');
+ </script>
+	</body>
+</html>
