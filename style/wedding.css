@@ -1,6 +1,7 @@
 body {
-	background-color:#353E4A;
+	/*background-color:#353E4A;*/
 	color: #4B4C49;
+	/*color: #989898;*/
 }
 
 a {
@@ -35,15 +36,24 @@ ul {
 	text-align: center;	
 	margin:0;
 	padding:0;
-	color: #989898;
+	/*color: #989898;*/
 	font-size: 70px;
-	text-shadow: 0px 2px 3px #555;
+	/*text-shadow: 0px 2px 3px #555;*/
 	font-family: cursive;
+}
+
+.symbol-envelope {
+	font-size: 60px;	
+	text-align:right;
 }
 
 .symbol-h {
 	position: relative;	
 	left:-20px;
+}
+
+.symbol-h-envelope {
+	left: -15px;
 }
 
 .tb {
