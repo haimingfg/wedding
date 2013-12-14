@@ -5,12 +5,12 @@ body,html {
 	padding: 0;
 }
 
-html {
-	background: url(../images/big-ground.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+body {
+	/*background: url(../images/big-ground.jpg) no-repeat center center fixed;*/
+	/*-webkit-background-size: cover;*/
+	/*-moz-background-size: cover;*/
+	/*-o-background-size: cover;*/
+	/*background-size: cover;*/
 }
 
 body {
@@ -38,14 +38,25 @@ img {
 	border: 0;
 }
 
+.full-screen {
+	z-index:-999;
+	min-height: 100%;
+	min-width: 100%;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+}
+
 .container {
 	width : 50%;
 	margin: 0 auto;
 	margin-top: 5%;
 	position: absolute;
-	left: 48%;
+	top:0;
+	left: 52%;
 	overflow: hidden;
-
+	background: tranparent;
 }
 
 .nav li{
@@ -55,16 +66,22 @@ img {
 .invited-card {
 	overflow: hidden;
 	filter: alpha(opacity=70);
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70); 
 	-khtml-opacity: 0.7;
 	-moz-opacity: 0.7;
 	opacity: 0.7;
 	background-color: white;
 	border-radius: 10px;
+	background: tranparent;
 }
 
 .invited-info {
-	margin: 10% auto;
+	margin: 0 auto;
 	width: 85%;
+}
+
+.invited-card ul {
+	margin-top: 10%;
 }
 
 .invited-card li {
