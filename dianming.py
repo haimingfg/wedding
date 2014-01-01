@@ -48,13 +48,25 @@ def note_mode(members):
 			if 'y' == line:
 				member['is_note'] = True
 				member['is_come'] = True
+				print '来到做，' + role_type(member['role']);
+				line = sys.stdin.readline().strip();
+				if 'y' != line:
+					member['role'] = 1 if 2 == member['role'] else 2
+
+				print '是否有其他人过来,y:是 n:否'
+				line = sys.stdin.readline().strip();
+				if 'y' == line:
+					add_mode(members, True)
 			elif 'n' == line:
 				member['is_note'] = True
 				member['is_come'] = False
+			elif 'done' == line:
+				print '推出'
+				break
 			print '设定成功'
 	print '全部设置完毕,请按help提示'
 
-def add_mode(members):
+def add_mode(members, is_come=False):
 	fst_come = True
 	while True:
 		tips = u'请输入' if fst_come else u'继续,如果完成请输入done'
@@ -68,7 +80,11 @@ def add_mode(members):
 			if is_check_unique(name, members):
 				print '1：做客人食饭，2：做兄弟'
 				role_id = int(sys.stdin.readline().strip())
-				member = create_member(name, role_id, False, False)
+				if False == is_come:
+					is_note = False
+				else:
+					is_note = True
+				member = create_member(name, role_id, is_note, is_come)
 				members.append(member)
 			else:
 				print '已经有%s，或者输入一些标识标志这个是谁' % name;
@@ -122,6 +138,8 @@ def edit_member(members):
 			if False == is_check_unique(name, members):
 				print '已经有这个名字,如果同名请输入标识'
 				order_type = 0;
+			else:
+				name = member_name.encode('utf-8')
 		elif 1 == order_type: 
 			print '输入角色 1:宾客 2:兄弟'
 			role = sys.stdin.readline().strip()
@@ -175,14 +193,36 @@ def not_come_list(members):
 	come_num = 0
 	id = 0
 	for member in members:
-		not_come = member['is_note'] and False == member['is_come']
+		not_come = (member['is_note'] and False == member['is_come'])
 		if not_come:
 			come_num += 1
 			id += 1
 			print '%d.%s' % (id, member['name'])
 	print '共%d' % come_num
 
-	pass
+def not_note_mode(members):
+	num = 0
+	id = 0
+	for member in members:
+		not_note = False == member['is_note']	
+		if not_note:
+			num += 1
+			id += 1
+			print '%d.%s' % (id, member['name'])
+	print '共%d' % num
+
+def role_list(members, role_id):
+	num = 0
+	id = 0
+	for member in members:
+		_member_type = int(member['role'])
+		if (True == member['is_come'] and role_id == _member_type):
+			num +=1
+			id += 1
+			print '%d.%s' % (id, member['name'])
+	print '共%d' % num
+
+
 def del_all(members):
 	return []
 
@@ -237,13 +277,16 @@ def show_tips():
 	print """
 add: 进入名单输入
 del: 进入删除名字
-del: 删除全部
+del_all: 删除全部
 edit: 进入修改人信息
 show: 查看名单
 done: 返回返回上级/退出
 tongji: 人数统计
 come_list: 来的人数列表
 not_come_list: 没有来的人
+guest_list:客人列表
+brother_list: 兄弟列表
+not_note: 没有通知
 note: 通知模式
 help: 帮助
 """
@@ -284,8 +327,18 @@ while True:
 	if 'not_come_list' == line:
 		not_come_list(members)
 
+	if 'guest_list' == line:
+		role_list(members, 1)
+
+	if 'brother_list' == line:
+		role_list(members, 2)
+
 	if 'note' == line:
 		note_mode(members)
+
+	if 'not_note' == line:
+		not_note_mode(members)
+
 	if 'del_all' == line:
 		members = del_all(members)
 	if 'del' == line:
